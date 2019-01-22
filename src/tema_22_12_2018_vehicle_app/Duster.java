@@ -7,7 +7,9 @@ public class Duster extends Dacia {
 	}
 
 	public void start() {
-
+		//atentie, daca ai suprascris metoda asta in Duster si nu ai definit nimic aici, 
+		//cand va fi executata pe un obiect de tip Duster, nu va face nimic din ce ai definit in superclasa
+		//Tip: poate voiai sa faci super.start();   :)
 	}
 
 	public void stop() {

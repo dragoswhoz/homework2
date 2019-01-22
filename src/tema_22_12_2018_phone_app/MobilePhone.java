@@ -11,6 +11,7 @@ public abstract class MobilePhone implements Phone {
 	private String material;
 	private final String imei;
 	private boolean isOn;
+	//imi place cum te-ai gandit sa tii detaliile astea in clasa Mobile Phone
 	private ArrayList<Contact> phonebook = new ArrayList<>();
 	private ArrayList<Message> messages = new ArrayList<>();
 	private ArrayList<String> history = new ArrayList<>();
@@ -24,7 +25,8 @@ public abstract class MobilePhone implements Phone {
 
 	@Override
 	public void addContact(String no, String phoneNumber, String firstName, String lastName) {
-		if (isOn == true) {
+		if (isOn) { //cand ai o varibila boolean nu e nevoie sa o compari in if ci o folosesti direct, 
+					//eventual o poti nega de ex: if(!isOn) adica verifici daca e oprit
 			Contact contact = new Contact(no, phoneNumber, firstName, lastName);
 			this.phonebook.add(contact);
 		} else {
@@ -34,7 +36,7 @@ public abstract class MobilePhone implements Phone {
 
 	@Override
 	public void listContacts() {
-		if (isOn == true) {
+		if (isOn) {
 			for (Contact contact : phonebook) {
 				System.out.print(contact.getNo() + " ");
 				System.out.print(contact.getFirstName() + " ");
@@ -49,12 +51,12 @@ public abstract class MobilePhone implements Phone {
 	@Override
 	public void sendMessage(String phoneNumber, String messageContent) {
 
-		if (isOn == true) {
+		if (isOn) {
 			Message message = new Message(phoneNumber, messageContent);
 			this.messages.add(message);
 			ZonedDateTime currentTime = ZonedDateTime.now();
 			this.history.add(currentTime + " - sent message to " + listEntry(phoneNumber));
-			this.availableBatteryLife = this.availableBatteryLife - 1;
+			this.availableBatteryLife = this.availableBatteryLife - 1; //availableBatteryLife--;
 			if (this.availableBatteryLife <= 0) {
 				this.availableBatteryLife = 0;
 				turnOff();
@@ -67,7 +69,7 @@ public abstract class MobilePhone implements Phone {
 
 	@Override
 	public void listMessages(String phoneNumber) {
-		if (isOn == true) {
+		if (isOn) {
 			for (Message message : messages) {
 				if (message.getPhoneNumber().equals(phoneNumber)) {
 					System.out.println(message.getMessageContent());
@@ -81,10 +83,12 @@ public abstract class MobilePhone implements Phone {
 	}
 
 	@Override
+	//Nota: Nu e nevoie sa referentiezi mereu campurile cu this, ci doar cand exista un conflict
 	public void call(String phoneNumber) {
-		if (isOn == true) {
+		if (isOn) {
 			ZonedDateTime currentTime = ZonedDateTime.now();
-			this.availableBatteryLife = this.availableBatteryLife - 2;
+			//this.availableBatteryLife = this.availableBatteryLife - 2; 
+			availableBatteryLife-=2;
 			this.history.add(currentTime + " - called " + listEntry(phoneNumber));
 			if (this.availableBatteryLife <= 0) {
 				this.availableBatteryLife = 0;
