@@ -6,6 +6,9 @@ public class VideoStore {
 
 	private List<Video> videoList = new ArrayList<>();
 
+	//public void addVideo(Video video) { ce zici daca ai fi facut ca metoda addVideo sa primeasca direct Video
+	//avantajul acestei abordari e ca poti pasa un obiet Video construit in mai multe moduri, 
+	//sau cu diverse campuri setate, nu doar cu title
 	public void addVideo(String title) {
 		Video video = new Video(title);
 		videoList.add(video);
