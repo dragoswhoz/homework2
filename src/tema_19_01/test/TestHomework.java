@@ -62,6 +62,12 @@ public class TestHomework {
 		assertEquals(2, result, 0.0);
 		
 	}
+	@Test
+	public void indexOfTest1() {
+		int result = testString.indexOf('a');
+		assertEquals(3, result); // era ok asa pentru compararea a doua nre intregi
+		
+	}
 	
 	@Test
 	public void isPalindromeTest() {

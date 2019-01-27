@@ -30,7 +30,8 @@ public class MethodsOnStrings {
 	
 	public boolean isPalindrome(String string) {
 		StringBuilder sbString= new StringBuilder(string);
-		sbString = sbString.reverse();
+		sbString = sbString.reverse(); 
+		//smecherie, nu asa voiam sa testati daca e palindrom :))
 		return string.equalsIgnoreCase(sbString.toString()) ? true : false;
 	}
 
