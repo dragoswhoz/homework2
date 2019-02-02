@@ -26,6 +26,10 @@ public class Rectangle implements Shape {
 		return (2*L+2*l);
 	}
 
+	//nu uita de hashcode, de fiecare data equals si hashcode se suprascriu impreuna
+	public int hashCode() {
+		return ((int)(l*L)) * 31;
+	}
 
 
 	@Override

@@ -5,29 +5,31 @@ import java.util.Objects;
 public class Circle implements Shape {
 	public static final double PI = Math.PI;
 	private double radius;
-	
+
 	public Circle() {
 		this(0);
 	}
-	
+
 	public Circle(double radius) {
 		this.radius = radius;
 	}
-	
 
 	@Override
 	public double calcArea() {
-		return PI*radius*radius;
-		
-		
+		return PI * radius * radius;
+
 	}
 
 	@Override
 	public double calcPerimeter() {
-		return 2*PI*radius;
-	
+		return 2 * PI * radius;
+
 	}
 
+	//nu uita de hashcode, de fiecare data equals si hashcode se suprascriu impreuna
+	public int hashCode() {
+		return ((int)radius) * 31;
+	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -43,6 +45,5 @@ public class Circle implements Shape {
 		Circle other = (Circle) obj;
 		return radius == other.radius;
 	}
-
 
 }

@@ -4,26 +4,30 @@ import java.util.Objects;
 
 public class Square implements Shape {
 
-	private double side;
-	
-	public Square(double side) {
+	private int side;
+
+	public Square(int side) {
 		this.side = side;
 	}
-	
+
 	public Square() {
 		this(0);
 	}
-	
+
 	@Override
 	public double calcArea() {
-		return side*side;
+		return side * side;
 	}
 
 	@Override
 	public double calcPerimeter() {
-		return side*4;
+		return side * 4;
 	}
 
+	//nu uita de hashcode, de fiecare data equals si hashcode se suprascriu impreuna
+	public int hashCode() {
+		return ((int) side) * 31; 
+	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -39,6 +43,5 @@ public class Square implements Shape {
 		Square other = (Square) obj;
 		return side == other.side;
 	}
-	
 
 }

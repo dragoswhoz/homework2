@@ -31,10 +31,10 @@ public class Triangle implements Shape {
 		
 	}
 
-	/*@Override
+	@Override //nu uita de hashcode, de fiecare data equals si hashcode se suprascriu impreuna
 	public int hashCode() {
 		return Objects.hash(side1, side2, side3);
-	}*/
+	}
 
 	@Override
 	public boolean equals(Object obj) {
