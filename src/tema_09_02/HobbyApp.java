@@ -7,6 +7,11 @@ import java.util.function.Supplier;
 public class HobbyApp {
 	private static Map<Person, List<Hobby>> hobbyBook = new Hashtable<>();
 
+	public static void main(String[] args) {
+		//am pus-o aici, nu avea sens sa creezi o alta clasa pentru asta
+		start();
+	}
+	
 	static void start() {
 		// HobbyApp app = new HobbyApp();
 
