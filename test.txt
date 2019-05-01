@@ -1,0 +1,1 @@
+History of JavaThe TIOBE programming language popularity index graph from 2002 to 2018. Over the course of a decade, Java (blue) and C (black) competed for the top position.
